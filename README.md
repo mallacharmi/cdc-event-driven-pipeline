@@ -16,12 +16,12 @@ The CDC service continuously polls the MySQL database, detects changes, converts
 
 ## Tech Stack
 
-- MySQL 8.0  
-- Apache Kafka  
-- Docker & Docker Compose  
-- Python  
-- kafka-python  
-- mysql-connector-python  
+- MySQL 8.0
+- Apache Kafka
+- Docker & Docker Compose
+- Python
+- kafka-python
+- mysql-connector-python
 
 ---
 
@@ -37,17 +37,21 @@ cdc-event-driven-pipeline/
 ├── Dockerfile
 └── README.md
 ```
+
 ### Setup Instructions
+
 Prerequisites
 Docker Desktop
 
 Git
 
 ### Clone Repository
+
 git clone https://github.com/Chopra-14/cdc-event-driven-pipeline.git
 cd cdc-event-driven-pipeline
 Start Pipeline
 docker compose up --build
+
 ### Services started:
 
 MySQL
@@ -62,9 +66,11 @@ Kafka Consumer
 
 docker compose ps
 Simulating Database Changes
+
 # Enter MySQL container:
 
 docker exec -it cdc-event-driven-pipeline-mysql-1 mysql -uroot -proot_password
+
 # Run:
 
 USE cdc_db;
@@ -74,15 +80,15 @@ INSERT INTO products(name,price,stock) VALUES("Phone",900,10);
 DELETE FROM products WHERE id=2;
 Kafka Event Schema
 {
-  "event_id": "uuid",
-  "timestamp": "ISO timestamp",
-  "table_name": "products",
-  "operation_type": "INSERT | UPDATE | DELETE",
-  "primary_keys": {"id": 1},
-  "payload": {
-    "old_data": {},
-    "new_data": {}
-  }
+"event_id": "uuid",
+"timestamp": "ISO timestamp",
+"table_name": "products",
+"operation_type": "INSERT | UPDATE | DELETE",
+"primary_keys": {"id": 1},
+"payload": {
+"old_data": {},
+"new_data": {}
+}
 }
 Error Handling & Retries
 Kafka producer retries on failure
@@ -98,18 +104,21 @@ Python runs in unbuffered mode for live logging
 ## Demo Screenshots
 
 ### Docker Compose Services Running
+
 ![docker](screenshots/docker_ps.png)
 
 ### MySQL Update Command
+
 ![mysql](screenshots/mysql_update.png)
 
 ### Kafka CDC Events
+
 ![kafka](screenshots/kafka_events.png)
 
 ### GitHub Repository
+
 ![github](screenshots/github_repo.png)
 
-
-
 ### Conclusion
+
 This project demonstrates a complete CDC pipeline with real-time change propagation using Kafka. It highlights core data engineering concepts such as event-driven architecture, containerization, and data consistency.
