@@ -115,10 +115,6 @@ Python runs in unbuffered mode for live logging
 
 ![kafka](screenshots/kafka_events.png)
 
-### GitHub Repository
-
-![github](screenshots/github_repo.png)
-
 ### Conclusion
 
 This project demonstrates a complete CDC pipeline with real-time change propagation using Kafka. It highlights core data engineering concepts such as event-driven architecture, containerization, and data consistency.
