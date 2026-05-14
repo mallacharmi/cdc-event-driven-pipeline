@@ -47,7 +47,7 @@ Git
 
 ### Clone Repository
 
-git clone https://github.com/Chopra-14/cdc-event-driven-pipeline.git
+git clone https://github.com/mallacharmi/cdc-event-driven-pipeline.git
 cd cdc-event-driven-pipeline
 Start Pipeline
 docker compose up --build
